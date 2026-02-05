@@ -33,17 +33,21 @@ const second = 1000,
   minute = second * 60,
   hour = minute * 60,
   day = hour * 24;
-let countDown = new Date('Oct 22, 2023 00:00:00').getTime(),
+
+// Set your birthday date here (format: 'Month Day, Year HH:MM:SS')
+let countDown = new Date('Dec 31, 2026 00:00:00').getTime(),
   x = setInterval(function () {
     let now = new Date().getTime(),
       distance = countDown - now;
-    // document.getElementById('days').innerText = Math.floor(distance / (day)),
-    document.getElementById('hours').innerText = Math.floor(distance / (hour)),
-      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
-      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
 
+    // Display days, hours, minutes, seconds
+    document.getElementById('days').innerText = Math.floor(distance / (day));
+    document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour));
+    document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute));
+    document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+    // When countdown reaches zero, start the surprise
     if (distance < 0) {
-
       timer.classList.add('d-none');
       confetti();
       clearInterval(x);
@@ -150,7 +154,7 @@ new TypeIt("#teks1", {
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday.", "Thank you for staying strong and making it this far.", "— Wishing you all the best"],
+  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday Abii🐝.", "Thank you for staying strong and making it this far.", "— Wishing you all the best"],
   startDelay: 2000,
   speed: 75,
   waitUntilVisible: true
