@@ -27,34 +27,12 @@ window.addEventListener('DOMContentLoaded', function () {
 document.body.addEventListener('click', playMusic, { once: true });
 const content = document.getElementById('content');
 const footer = document.getElementsByTagName('footer')[0];
-const timer = document.getElementById('timer');
 
-const second = 1000,
-  minute = second * 60,
-  hour = minute * 60,
-  day = hour * 24;
-
-// Set your birthday date here (format: 'Month Day, Year HH:MM:SS')
-let countDown = new Date('Dec 31, 2026 00:00:00').getTime(),
-  x = setInterval(function () {
-    let now = new Date().getTime(),
-      distance = countDown - now;
-
-    // Display days, hours, minutes, seconds
-    document.getElementById('days').innerText = Math.floor(distance / (day));
-    document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour));
-    document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute));
-    document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
-
-    // When countdown reaches zero, start the surprise
-    if (distance < 0) {
-      timer.classList.add('d-none');
-      confetti();
-      clearInterval(x);
-      _slideSatu();
-    }
-
-  }, second)
+// Start the surprise directly when page loads
+window.addEventListener('DOMContentLoaded', function () {
+  confetti();
+  _slideSatu();
+});
 
 const _slideSatu = function () {
   const tap = document.getElementById('tap');
