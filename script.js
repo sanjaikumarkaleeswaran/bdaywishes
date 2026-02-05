@@ -145,7 +145,7 @@ new TypeIt("#teks1", {
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday Abii🐝.", "Thank you for staying strong and making it this far.", "— Wishing you all the best", "— Sanjai"],
+  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday Abii🐝.", "— Wishing you all the best", "— Sanjai"],
   startDelay: 1000,
   speed: 75,
   waitUntilVisible: true
