@@ -28,10 +28,23 @@ document.body.addEventListener('click', playMusic, { once: true });
 const content = document.getElementById('content');
 const footer = document.getElementsByTagName('footer')[0];
 
-// Start the surprise directly when page loads
+// Show initial tap message when page loads
 window.addEventListener('DOMContentLoaded', function () {
-  confetti();
-  _slideSatu();
+  const tap = document.getElementById('tap');
+  tap.classList.remove('d-none');
+
+  // Wait for user to click to start everything
+  document.body.addEventListener('click', function startSurprise() {
+    // Start music
+    playMusic();
+
+    // Hide tap message
+    tap.classList.add('d-none');
+
+    // Start confetti and first slide
+    confetti();
+    _slideSatu();
+  }, { once: true });
 });
 
 const _slideSatu = function () {
@@ -132,8 +145,8 @@ new TypeIt("#teks1", {
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday Abii🐝.", "Thank you for staying strong and making it this far.", "— Wishing you all the best"],
-  startDelay: 2000,
+  strings: ["Even with or without me, I hope the universe always finds a way to make you happy.", "Happy birthday Abii🐝.", "Thank you for staying strong and making it this far.", "— Wishing you all the best", "— Sanjai"],
+  startDelay: 1000,
   speed: 75,
   waitUntilVisible: true
 }).go();
